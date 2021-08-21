@@ -1,0 +1,125 @@
+Gerarchia:
+
+RentalObject:
+
+-unsigned int 		id			Vehicle id for our company system
+
+-string 		name			Vehicle name 
+
+-unsigned int		daysN			Number of days the vehicle is being rented for, if the customer decides to close the rental contract before the
+						deadline they're entitled to a 20% refund for each of them
+
+-double		 	dailyPrice		Base daily cost for renting the vehicle
+
+-unsigned int 		km			Total amount of kilometers traveled by the vehicle
+
+-unsigned int 		rating			Customers' rating for the vehicle
+
+-bool 			extraInsurance		true if the customer chooses to access our premium insurance plan
+
+-bool 			available		true if vehicle is not rented at the moment
+
+
+#double startRent() 				intiate the rental contract and returns the rental price by calling the method getRentAmount(), 
+						not const because the attribute "available" => false
+
+#double getRentAmount() const	 		returns the amount to pay for the invoked object
+						POLY because each object have a different way to implement calculation of the total to pay				
+
+
+#double terminateRent() 			terminate the rental contract and returns the refund amount (if there's any) by calling the method getRefundAmount(),
+						not const because the attribute "available" => true
+
+
+#double getRefundAmount() const 		returns the amount of refund the customer is entitled to for the invoked object
+						POLY because each object have a different way to implement calculation of the refund
+
+#void extendContract()
+
+#void reduceContract()				these methods are used to extend or reduce the amount of contract days for the rental, maybe poly?
+						could made poly in the case where different types of objects can allow only some types of extentions
+						(eg: ShowRoom objects can only extend or reduce their contract in 7 days slot because reasons)
+
+#void bookRent()
+
+
+
+Road:
+
+-unsigned double	roadFee			In order to cover ourselves from unexpected costs that comes from the risk of driving on the road we apply a fee on all
+						vehicles that will be used on public roads
+
+-unsigned int 		passengersN		In order to make a rental, the customer must declare the presence and number of any passengers in the vehicle, this 
+						will affect the total cost of the rental. ShowRoom vehicles can't be driven so this option is useless, same goes for
+						OffRoad vehicles since all of them don't allow the presence of any passengers
+
+-bool			highwayPass		Customers can enable our highway pass, it enables to travel through all highways in a 100 km range free of tolls 
+
+
+OffRoad:
+
+-unsigned int		trackCredits		Customers who rent an OffRoad vehicle can choose to also rent our track, OffRoad vehicles are the only ones allowed
+						inside the track. The customer needs to specify the number of days they want to have access to the track, 
+						(0 = not renting the track), once the customer has decided to rent the track for N days he will be able to have access
+						to it even in non-consecutive days as long as they still have enough track's credits available.
+						If at the end of the rental, the customer didn't use all of their track's credits they're entitled to a 50% refund on 
+						them
+
+-enum 			tires			{ HardTerrain, IntermediateTerrain, SoftTerrain }
+						The customer can choose the type of tires for their motorcycle/ATV depending on what they plan to do with it
+ 						If tires != wantedTires then cost++
+	
+ShowRoom:
+
+-string 		showName		Exposition's name, this is what will be used as reference for all attendees during the exibition
+
+-bool			rentRoom		True if the customer decides to rent our showroom to exhibit their vehicle, since our ShowRoom vehicles are meant for 
+						exposition only we don't allow them to change location, choosing this option will result in the vehicle being exposed
+						in our showroom for the whole rental 		
+
+-enum			security		{ None, Low, Medium, High } 
+						If rentRoom == true then security = Medium.
+						If rentRoom == false then security can be anything between the options, None = the customer decided to not hire
+						security for their show or they hired a different security service.
+						Low, Medium and High options will depend on the specN value
+
+
+-unsigned int		specN			Number of spectators, this will affect the price only if the exibition takes place at our own showroom or if our
+						security service is employed for the exibition
+
+
+Car:
+
+-bool			ac			Signals the presence of air conditioning for the vehicle
+
+-bool			autoWind		Signals the presence of automatic windows
+
+-bool 			gps			Signals the presence of a gps
+
+
+RMotorcycle:
+
+-enum			handleBars		{ CafeRacer, Scrambler, Sport, ApeHangers}
+						Just for RMotorcycles because ORMotorcycles and ATVs only have default offroad racing handle bars
+						If handleBars != wantedHandleBars then cost++
+
+-unsigned int 		exhaustN		Declares the number of exhausts mounted on the motorcycle (ORMotorcycle only have 1 exhaust)
+
+
+ORMotorcycle:
+
+
+ATV:
+
+
+
+Inizializzazione lista veicoli:
+All'inizio del programma vengono inizializzati tutti i veicoli, il criterio con cui vengono mostrati nella pagina prncipale è il seguente:
+for (it = lst.begin(), it != lst.end(), it++){
+	if (filter == X){
+		// show vehicles filtered by X
+		}
+	}
+
+Dove X è il criterio scelto tramite il menu a tendina dei filtri, di default X = id
+
