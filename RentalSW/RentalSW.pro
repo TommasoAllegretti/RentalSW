@@ -26,8 +26,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    model/rentalobject.cpp
+    model/day.cpp \
+    model/deepptr.cpp \
+    model/offroadvehicle.cpp \
+    model/rentalobject.cpp \
+    model/roadvehicle.cpp \
+    model/showroomvehicle.cpp
 
 HEADERS += \
         mainwindow.h \
-    model/rentalobject.h
+    model/day.h \
+    model/deepptr.h \
+    model/offroadvehicle.h \
+    model/rentalobject.h \
+    model/roadvehicle.h \
+    model/showroomvehicle.h

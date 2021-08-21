@@ -1,26 +1,27 @@
 #ifndef RENTALOBJECT_H
 #define RENTALOBJECT_H
 
-#include <String>
+#include <string>
+
+#include "day.h"
 
 class RentalObject{
 private:
     unsigned int id;
-    string name;
+    std::string name;
     unsigned int daysN;
-    static double dailyPrice;
     unsigned int km;
     unsigned int rating;
     bool extraInsurance;
+    static double dailyPrice;
 protected:
 public:
     double startRent();
-    double getRentAmount() const;
+    virtual double getRentAmount() const;
     double terminateRent();
-    double getRefundAmount() const;
-    void extendContract();
-    void reduceContract();
-
-}
+    virtual double getRefundAmount() const;
+    double extendContract();
+    double reduceContract();
+};
 
 #endif // RENTALOBJECT_H
