@@ -25,7 +25,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp \
+        view/mainwindow.cpp \
     model/day.cpp \
     model/deepptr.cpp \
     model/offroadvehicle.cpp \
@@ -36,10 +36,13 @@ SOURCES += \
     model/ormotorcycle.cpp \
     model/rmotorcycle.cpp \
     model/car.cpp \
-    model/atv.cpp
+    model/atv.cpp \
+    view/mainwindowview.cpp \
+    controller/controller.cpp \
+    controller/homecontroller.cpp
 
 HEADERS += \
-        mainwindow.h \
+        view/mainwindow.h \
     model/day.h \
     model/deepptr.h \
     model/offroadvehicle.h \
@@ -50,4 +53,8 @@ HEADERS += \
     model/ormotorcycle.h \
     model/rmotorcycle.h \
     model/car.h \
-    model/atv.h
+    model/atv.h \
+    routes/routes.h \
+    view/mainwindowview.h \
+    controller/controller.h \
+    controller/homecontroller.h
