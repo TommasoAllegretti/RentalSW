@@ -12,8 +12,8 @@ private:
     bool highwayPass;
 public:
     RoadVehicle();
-    double getRentAmount() const override;
-    double getRefundAmount() const override;
+    double getRentAmount() const override { return 0; }
+    double getRefundAmount() const override { return 0; }
 };
 
 #endif // ROADVEHICLE_H

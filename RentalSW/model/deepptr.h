@@ -3,12 +3,13 @@
 
 #include <iostream>
 
-template <class T>
+template<class T>
 class DeepPtr
 {
 private:
     T* info;
 public:
+    DeepPtr(); //test
     DeepPtr(T* = nullptr);
     DeepPtr(const DeepPtr&);
     ~DeepPtr();

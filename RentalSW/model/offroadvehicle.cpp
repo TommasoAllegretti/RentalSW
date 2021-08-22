@@ -1,6 +1,7 @@
 #include "offroadvehicle.h"
 
-OffRoadVehicle::OffRoadVehicle()
-{
+OffRoadVehicle::OffRoadVehicle(){
+
 
 }
+

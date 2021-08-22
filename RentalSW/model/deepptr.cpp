@@ -1,6 +1,5 @@
 #include "deepptr.h"
 
-DeepPtr::DeepPtr()
-{
-
+template <class T>
+DeepPtr<T>::DeepPtr(){
 }

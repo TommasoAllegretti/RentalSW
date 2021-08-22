@@ -10,8 +10,8 @@ private:
     enum tires { SoftT, MediumT, HardT };
 public:
     OffRoadVehicle();
-    double getRentAmount() const override;
-    double getRefundAmount() const override;
+    double getRentAmount() const override { return 0; }
+    double getRefundAmount() const override { return 0; }
 };
 
 #endif // OFFROADVEHICLE_H

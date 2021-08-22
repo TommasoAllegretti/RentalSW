@@ -17,11 +17,13 @@ private:
 protected:
 public:
     double startRent();
-    virtual double getRentAmount() const;
+    virtual double getRentAmount() const = 0;
     double terminateRent();
-    virtual double getRefundAmount() const;
+    virtual double getRefundAmount() const = 0;
     double extendContract();
     double reduceContract();
+
+    RentalObject();
 };
 
 #endif // RENTALOBJECT_H

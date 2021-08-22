@@ -99,15 +99,14 @@ Car:
 
 RMotorcycle:
 
--enum			handleBars		{ CafeRacer, Scrambler, Sport, ApeHangers}
+-enum			handleBars		{ CafeRacer, Scrambler, Sport, ApeHangers }
 						Just for RMotorcycles because ORMotorcycles and ATVs only have default offroad racing handle bars
 						If handleBars != wantedHandleBars then cost++
-
--unsigned int 		exhaustN		Declares the number of exhausts mounted on the motorcycle (ORMotorcycle only have 1 exhaust)
 
 
 ORMotorcycle:
 
+-
 
 ATV:
 
@@ -122,4 +121,20 @@ for (it = lst.begin(), it != lst.end(), it++){
 	}
 
 Dove X è il criterio scelto tramite il menu a tendina dei filtri, di default X = id
+
+
+ORE:
+
+17/08/21
+4 ore progettazione
+
+18/08/21
+2 ore progettazione
+
+19/08/21
+6 ore progettazione
+
+21/08/21
+2 ore gerarchia + classe DeepPtr
+
 

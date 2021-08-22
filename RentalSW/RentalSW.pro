@@ -31,7 +31,12 @@ SOURCES += \
     model/offroadvehicle.cpp \
     model/rentalobject.cpp \
     model/roadvehicle.cpp \
-    model/showroomvehicle.cpp
+    model/showroomvehicle.cpp \
+    model/container.cpp \
+    model/ormotorcycle.cpp \
+    model/rmotorcycle.cpp \
+    model/car.cpp \
+    model/atv.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -40,4 +45,9 @@ HEADERS += \
     model/offroadvehicle.h \
     model/rentalobject.h \
     model/roadvehicle.h \
-    model/showroomvehicle.h
+    model/showroomvehicle.h \
+    model/container.h \
+    model/ormotorcycle.h \
+    model/rmotorcycle.h \
+    model/car.h \
+    model/atv.h

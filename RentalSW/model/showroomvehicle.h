@@ -13,8 +13,8 @@ private:
     enum security { None, Low, Medium, High };
 public:
     ShowroomVehicle();
-    double getRentAmount() const override;
-    double getRefundAmount() const override;
+    double getRentAmount() const override { return 0; }
+    double getRefundAmount() const override { return 0; }
 };
 
 #endif // SHOWROOMVEHICLE_H
