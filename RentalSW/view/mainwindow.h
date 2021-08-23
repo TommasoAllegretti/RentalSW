@@ -13,7 +13,7 @@ class MainWindow : public QMainWindow {
 private:
     MainWindowView* view;
     Controller* controller;
-    void closeEvent(QCloseEvent* e) override;
+    //void closeEvent(QCloseEvent* e) override;
 
 public:
     MainWindow(QWidget *parent = 0);

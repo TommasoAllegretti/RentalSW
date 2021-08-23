@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       += xml
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -39,7 +40,8 @@ SOURCES += \
     model/atv.cpp \
     view/mainwindowview.cpp \
     controller/controller.cpp \
-    controller/homecontroller.cpp
+    controller/homecontroller.cpp \
+    view/home.cpp
 
 HEADERS += \
         view/mainwindow.h \
@@ -57,4 +59,5 @@ HEADERS += \
     routes/routes.h \
     view/mainwindowview.h \
     controller/controller.h \
-    controller/homecontroller.h
+    controller/homecontroller.h \
+    view/home.h

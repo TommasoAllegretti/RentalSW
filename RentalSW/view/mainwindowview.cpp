@@ -1,6 +1,5 @@
 #include "mainwindowview.h"
 
-MainWindowView::MainWindowView()
-{
+MainWindowView::MainWindowView() {
 
 }

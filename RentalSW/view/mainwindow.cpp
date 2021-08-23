@@ -4,16 +4,23 @@
 #include "controller/controller.h"
 #include "controller/homecontroller.h"
 
+#include <QGraphicsScene>
+
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), view(new MainWindowView()), controller(new HomeController()) {
+    setWindowTitle("QRental SW");
+    setMinimumSize(QSize(1024, 480));
+    resize(QSize(1280,720));
+    setCentralWidget(view);
+    setScreen(Routes::HomeScreen);
 }
 
 MainWindow::~MainWindow()
 {
-
+    delete view;
 }
 
-void setScreen(Routes r){
+void MainWindow::setScreen(Routes r){
     if(controller)
         delete controller;
     switch(r) {

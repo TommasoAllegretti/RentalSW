@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<vehicles>
+    <car>
+        <id>1</id>
+        <name>Ford Fiesta</name>
+        <km></km>10000
+        <rating>4</rating>
+    </car>
+    <car>
+        <id>2</id>
+        <name>Toyota Yaris</name>
+        <km>5000</km>
+        <rating>3</rating>
+    </car>
+    
+    <car>
+        <id>3</id>
+        <name>Jeep Figa</name>
+        <km>0</km>
+        <rating>5</rating>
+    </car>
+    
+    <car>
+        <id>4</id>
+        <name>Hond Exc</name>
+        <km>90000</km>
+        <rating>2</rating>
+    </car>
+    
+    <car>
+        <id>5</id>
+        <name>Fiat Punto</name>
+        <km>5000</km>
+        <rating>3</rating>
+    </car>
+</vehicles>

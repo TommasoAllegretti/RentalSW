@@ -4,6 +4,7 @@
 #include <QObject>
 #include "controller.h"
 #include <QGraphicsScene>
+#include "view/home.h"
 
 
 class HomeController: public Controller {

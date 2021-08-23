@@ -1,6 +1,6 @@
 #include "homecontroller.h"
 
-HomeController::HomeController() : controller(), scene(new Home){
+HomeController::HomeController() : Controller(), scene(new Home){
 
 }
 
