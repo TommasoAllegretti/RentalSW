@@ -3,8 +3,8 @@
 Home::Home() {
     setSceneRect(0, 0, 1920, 1080);
     //loadBG();
-    loadButton();
-    //readXml();
+    //loadButton();
+    readXml();
 }
 
 void Home::loadButton() {
@@ -32,6 +32,7 @@ void Home::loadBG() {
 void Home::printXml(const QDomNode& node) {
     qDebug() << "Opened printXml()";
     QDomNode domNode = node.firstChild();
+    qDebug() << domNode;
 
     while(!domNode.isNull()){
         qDebug() << "Opened while";
@@ -43,14 +44,19 @@ void Home::printXml(const QDomNode& node) {
 }
 
 void Home::readXml() {
-    qDebug() << "Opened readXml()";
+    qDebug() << "Opened readXml()" /*+ QCoreApplication::applicationDirPath()*/;
     QDomDocument doc;
-    QFile file("vehicles.xml");
+    qDebug() << "doc";
+    QFile file("C:\\Users\\Tommaso\\Desktop\\RentalSW\\RentalSW\\xml\\vehicles.xml");
+    qDebug() << "Found file";
     if(file.open(QIODevice::ReadOnly)){
-        if(doc.setContent(&file)){
+        qDebug() << "1 if";
+        //if(doc.setContent(&file)){
+            //qDebug() << "2 if";
             QDomElement elem = doc.documentElement();
+           // qDebug() << elem.tagName();
             printXml(elem);
-        }
+        //}
         file.close();
     }
 }
