@@ -1,11 +1,12 @@
 #include "home.h"
 
 Home::Home() {
-    setSceneRect(0, 0, 1920, 1080);
+    //setSceneRect(0, 0, 1920, 1080);
     //loadBG();
     //loadButton();
-    readXml();
+    //readXml();
 }
+
 
 void Home::loadButton() {
     qDebug()<< "Opened loadButton";

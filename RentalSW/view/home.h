@@ -8,6 +8,7 @@
 #include <QtXml>
 #include <QDebug>
 #include <QFile>
+#include <QLabel>
 
 class Home: public QGraphicsScene {
     Q_OBJECT
