@@ -4,7 +4,7 @@ Home::Home() {
     //setSceneRect(0, 0, 1920, 1080);
     //loadBG();
     //loadButton();
-    //readXml();
+    readXml();
 }
 
 

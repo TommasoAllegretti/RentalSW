@@ -10,7 +10,7 @@ private:
     unsigned int sz;
 public:
     Container();
-    Container(T, int);
+    Container(unsigned int, T);
     Container(const Container&);
     ~Container();
 
@@ -36,7 +36,7 @@ public:
 
     class const_iterator{
         private:
-            iterator it;
+            iterator iter;
         public:
             const_iterator();
             const_iterator(const iterator&);

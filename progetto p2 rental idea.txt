@@ -137,4 +137,10 @@ ORE:
 21/08/21
 2 ore gerarchia + classe DeepPtr
 
+23/08/21
+4 ore
+
+24/08/21
+4 ore xml + dichiarazione classe container
+
 
