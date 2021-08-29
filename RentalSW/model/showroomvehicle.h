@@ -3,16 +3,16 @@
 
 #include "rentalobject.h"
 
+enum class security { None, Low, Medium, High };
 
-class ShowroomVehicle: protected RentalObject
-{
+class ShowroomVehicle: public RentalObject {
 private:
-    std::string showName;
+    QString showName;
     bool rentRoom;
     unsigned int specN;
-    enum security { None, Low, Medium, High };
+    security showSec;
 public:
-    ShowroomVehicle();
+    ShowroomVehicle(Container<bool>, unsigned int, QString, unsigned int, unsigned int, bool, double, QString, bool, unsigned int, security);
     double getRentAmount() const override { return 0; }
     double getRefundAmount() const override { return 0; }
 };

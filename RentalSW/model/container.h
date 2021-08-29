@@ -8,6 +8,7 @@ class Container {
 private:
     T* info;
     unsigned int sz;
+    unsigned int cap;
 public:
     Container();
     Container(unsigned int, T);
@@ -56,14 +57,15 @@ public:
         };
 
     unsigned int size() const;
+    unsigned int capacity() const;
 
     Container<T>& operator=(const Container<T>&);
 
     iterator begin();
     iterator end();
 
-    const_iterator cbegin();
-    const_iterator cend();
+    const_iterator cbegin() const;
+    const_iterator cend() const;
 
     T& operator[](unsigned int);
     const T& operator[](unsigned int) const;
@@ -81,6 +83,232 @@ std::ostream& operator<<(std::ostream& os, const Container<T>& c){
         os << *cit << std::endl;
     }
     return os;
+}
+
+
+/* Implementzione */
+
+
+//costrttore di default
+template <class T>
+Container<T>::Container(): cap(1), sz(0), info(new T[1]) {}
+
+//costruttore a 2 argomenti
+template <class T>
+Container<T>::Container(unsigned int elemN, T t): cap(elemN), sz(elemN), info(new T[cap]) {
+    for(int i = 0; i<cap; i++){
+        info[i] = t;
+    }
+}
+
+//costruttore di copia
+template <class T>
+Container<T>::Container(const Container& c): cap(c.cap), sz(c.sz), info(new T[cap]) {
+    for(int i = 0; i<sz; i++){
+        info[i] = c.info[i];
+    }
+}
+
+//distruttore
+template <class T>
+Container<T>::~Container<T>() {
+    delete info;
+}
+
+template <class T>
+Container<T>& Container<T>::operator=(const Container<T>& c){
+    if(this!=&c){
+        delete[] info;
+        cap = c.cap;
+        info = new T[cap];
+        for(int i=0; i<sz; i++)
+            info[i] = c.info[i];
+    }
+    return *this;
+}
+
+template <class T>
+Container<T>::iterator::iterator(): p(nullptr) {}
+
+template <class T>
+Container<T>::iterator::iterator(T* t): p(t) {}
+
+template <class T>
+typename Container<T>::iterator Container<T>::iterator::operator++(int){
+    Container<T>::iterator it = *this;
+    p++;
+    return it;
+}
+
+template <class T>
+typename Container<T>::iterator& Container<T>::iterator::operator++(){
+    ++p;
+    return *this;
+}
+
+template <class T>
+typename Container<T>::iterator Container<T>::iterator::operator--(int){
+    Container<T>::iterator it = *this;
+    p--;
+    return it;
+}
+
+template <class T>
+typename Container<T>::iterator& Container<T>::iterator::operator--(){
+    --p;
+    return *this;
+}
+
+template <class T>
+bool Container<T>::iterator::operator==(const Container<T>::iterator& it) const {
+    return p == it.p;
+}
+
+template <class T>
+bool Container<T>::iterator::operator!=(const Container<T>::iterator& it) const {
+    return p != it.p;
+}
+
+template <class T>
+T& Container<T>::iterator::operator*() const {
+    return *p;
+}
+
+template <class T>
+T* Container<T>::iterator::operator->() const {
+    return p;
+}
+
+//CONST_ITERATOR
+//costruttore di default
+template <class T>
+Container<T>::const_iterator::const_iterator(): iter(nullptr, false) {}
+
+//costruttore di copia
+template <class T>
+Container<T>::const_iterator::const_iterator(const iterator& it): iter(it) {}
+
+
+template <class T>
+Container<T>::const_iterator::const_iterator(T* t): iter(t) {}
+
+template <class T>
+typename Container<T>::const_iterator Container<T>::const_iterator::operator++(int){
+    Container<T>::const_iterator it = *this;
+    iter++;
+    return it;
+}
+
+template <class T>
+typename Container<T>::const_iterator& Container<T>::const_iterator::operator++(){
+    ++iter;
+    return *this;
+}
+
+template <class T>
+typename Container<T>::const_iterator Container<T>::const_iterator::operator--(int){
+    Container<T>::const_iterator it = *this;
+    iter--;
+    return it;
+}
+
+template <class T>
+typename Container<T>::const_iterator& Container<T>::const_iterator::operator--(){
+    --iter;
+    return *this;
+}
+
+template <class T>
+bool Container<T>::const_iterator::operator==(const Container<T>::const_iterator& it) const {
+    return iter == it.iter;
+}
+
+template <class T>
+bool Container<T>::const_iterator::operator!=(const Container<T>::const_iterator& it) const {
+    return iter != it.iter;
+}
+
+template <class T>
+const T& Container<T>::const_iterator::operator*() const {
+    return iter.operator *();
+}
+
+template <class T>
+const T* Container<T>::const_iterator::operator->() const {
+    return iter.operator ->();
+}
+
+template <class T>
+unsigned int Container<T>::size() const { return sz; }
+
+template <class T>
+unsigned int Container<T>::capacity() const { return cap; }
+
+template <class T>
+typename Container<T>::iterator Container<T>::begin() { return info; }
+
+template<class T>
+typename Container<T>::iterator Container<T>::end() { return info+sz; }
+
+template <class T>
+typename Container<T>::const_iterator Container<T>::cbegin() const { return info; }
+
+template<class T>
+typename Container<T>::const_iterator Container<T>::cend() const { return info+sz; }
+
+template<class T>
+T& Container<T>::operator[](unsigned int i){ return info[i]; }
+
+template<class T>
+const T& Container<T>::operator[](unsigned int i) const{ return info[i]; }
+
+
+template<class T>
+void Container<T>::push_back(const T& t){
+    if(sz==cap){
+        cap*=2;
+        T* aux = new T[sz];
+        for(int i=0;i<sz; i++)
+            aux[i]= info[i];
+        delete[] info;
+        info = new T[cap];
+        for(int i=0;i<sz; i++)
+            info[i]=aux[i];
+    }
+    info[sz] = t;
+    sz++;
+}
+
+template<class T>
+void Container<T>::pop_back(){
+    if(sz>0){
+        sz--;
+        T* aux = new T[sz];
+        for(int i=0;i<sz; i++)
+            aux[i]= info[i];
+        delete[] info;
+        info = new T[cap];
+        for(int i=0;i<sz; i++)
+            info[i]=aux[i];
+    }
+}
+
+template<class T>
+void Container<T>::erase(int i){
+    if(i==sz-1)
+        pop_back();
+    else if(0<=i && i<sz-1){
+        for(int j=i; j<sz-1; j++)
+            info[j]=info[j+1];
+        pop_back();
+    }
+    else
+        throw "index out of range";
+}
+
+template<class T>
+void Container<T>::clear(){
+    sz=0;
 }
 
 #endif // CONTAINER_H

@@ -2,6 +2,7 @@
 #define DEEPPTR_H
 
 #include <iostream>
+#include "rentalobject.h"
 
 template<class T>
 class DeepPtr
@@ -9,7 +10,6 @@ class DeepPtr
 private:
     T* info;
 public:
-    DeepPtr(); //test
     DeepPtr(T* = nullptr);
     DeepPtr(const DeepPtr&);
     ~DeepPtr();
@@ -41,6 +41,14 @@ public:
 template <class T>
 std::ostream& operator<<(std::ostream& os, const DeepPtr<T>& d){
     return os << *d;
+}
+
+
+/* Implementation */
+
+template <>
+DeepPtr<RentalObject>::DeepPtr(RentalObject* ro){
+
 }
 
 #endif // DEEPPTR_H

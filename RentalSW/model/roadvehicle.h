@@ -4,16 +4,15 @@
 #include "rentalobject.h"
 
 
-class RoadVehicle: protected RentalObject
-{
+class RoadVehicle: public RentalObject {
 private:
     double roadFee;
     unsigned int passengersN;
     bool highwayPass;
 public:
-    RoadVehicle();
-    double getRentAmount() const override { return 0; }
-    double getRefundAmount() const override { return 0; }
+    RoadVehicle(Container<bool>, unsigned int, QString, unsigned int, unsigned int, bool, double, double, unsigned int, bool);
+    //double getRentAmount() const override { return 0; }
+    //double getRefundAmount() const override { return 0; }
 };
 
 #endif // ROADVEHICLE_H

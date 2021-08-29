@@ -2,28 +2,27 @@
 #define RENTALOBJECT_H
 
 #include <string>
-
-#include "day.h"
+#include <QString>
+#include "container.h"
 
 class RentalObject{
 private:
+    Container<bool> availability;
     unsigned int id;
-    std::string name;
-    unsigned int daysN;
+    QString name;
     unsigned int km;
     unsigned int rating;
     bool extraInsurance;
-    static double dailyPrice;
+    double dailyPrice;
 protected:
 public:
+    RentalObject(Container<bool>, unsigned int, QString, unsigned int, unsigned int, bool, double);
     double startRent();
     virtual double getRentAmount() const = 0;
     double terminateRent();
     virtual double getRefundAmount() const = 0;
     double extendContract();
     double reduceContract();
-
-    RentalObject();
 };
 
 #endif // RENTALOBJECT_H

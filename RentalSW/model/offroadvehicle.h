@@ -3,15 +3,17 @@
 
 #include "rentalobject.h"
 
-class OffRoadVehicle : protected RentalObject
-{
+enum class tires { SoftT, MediumT, HardT };
+
+class OffRoadVehicle: public RentalObject {
 private:
     unsigned int trackCredits;
-    enum tires { SoftT, MediumT, HardT };
+    tires defaultT;
+    tires wantedT;
 public:
-    OffRoadVehicle();
-    double getRentAmount() const override { return 0; }
-    double getRefundAmount() const override { return 0; }
+    OffRoadVehicle(Container<bool>, unsigned int, QString, unsigned int, unsigned int, bool, double, unsigned int, tires, tires);
+    //double getRentAmount() const override { return 0; }
+    //double getRefundAmount() const override { return 0; }
 };
 
 #endif // OFFROADVEHICLE_H

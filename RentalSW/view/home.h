@@ -5,9 +5,7 @@
 #include <QPushButton>
 #include <QPalette>
 #include <QBrush>
-#include <QtXml>
 #include <QDebug>
-#include <QFile>
 #include <QLabel>
 
 class Home: public QGraphicsScene {
@@ -15,8 +13,7 @@ class Home: public QGraphicsScene {
 private:
     void loadButton();
     void loadBG();
-    void readXml();
-    void printXml(const QDomNode&);
+    void loadLabels();
 public:
     Home();
 };

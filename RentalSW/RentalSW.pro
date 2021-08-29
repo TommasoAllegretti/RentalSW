@@ -41,7 +41,8 @@ SOURCES += \
     view/mainwindowview.cpp \
     controller/controller.cpp \
     controller/homecontroller.cpp \
-    view/home.cpp
+    view/home.cpp \
+    model/rental.cpp
 
 HEADERS += \
         view/mainwindow.h \
@@ -60,4 +61,5 @@ HEADERS += \
     view/mainwindowview.h \
     controller/controller.h \
     controller/homecontroller.h \
-    view/home.h
+    view/home.h \
+    model/rental.h
