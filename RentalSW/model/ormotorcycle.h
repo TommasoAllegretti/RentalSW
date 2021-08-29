@@ -5,7 +5,7 @@
 
 class ORMotorcycle: public OffRoadVehicle {
 public:
-    ORMotorcycle(Container<bool>, unsigned int, QString, unsigned int, unsigned int, bool, double, unsigned int, tires, tires);
+    ORMotorcycle(unsigned int, QString, unsigned int, unsigned int, bool, double, unsigned int, tires, tires);
     double getRentAmount() const override { return 0; }
     double getRefundAmount() const override { return 0; }
 };

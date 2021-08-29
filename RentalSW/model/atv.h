@@ -5,7 +5,7 @@
 
 class Atv: public OffRoadVehicle {
 public:
-    Atv(Container<bool>, unsigned int, QString, unsigned int, unsigned int, bool, double, unsigned int, tires, tires);
+    Atv(unsigned int, QString, unsigned int, unsigned int, bool, double, unsigned int, tires, tires);
     double getRentAmount() const override { return 0; }
     double getRefundAmount() const override { return 0; }
 };

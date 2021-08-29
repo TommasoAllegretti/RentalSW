@@ -11,6 +11,7 @@ private:
     Container<DeepPtr<RentalObject>> lst;
 public:
     Rental();
+    void printLst();
 };
 
 #endif // RENTAL_H

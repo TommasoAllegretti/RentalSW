@@ -7,7 +7,7 @@
 
 class RentalObject{
 private:
-    Container<bool> availability;
+    bool AV[30];
     unsigned int id;
     QString name;
     unsigned int km;
@@ -16,13 +16,20 @@ private:
     double dailyPrice;
 protected:
 public:
-    RentalObject(Container<bool>, unsigned int, QString, unsigned int, unsigned int, bool, double);
-    double startRent();
+    RentalObject(unsigned int, QString, unsigned int, unsigned int, bool, double);
+    virtual ~RentalObject() =default;
+
+    virtual void bookTimeframe() = 0;
     virtual double getRentAmount() const = 0;
-    double terminateRent();
+    double startRent();
+
+    virtual void freeTimeframe() = 0;
     virtual double getRefundAmount() const = 0;
+    double terminateRent();
     double extendContract();
     double reduceContract();
+
+    virtual RentalObject* clone() const =0;
 };
 
 #endif // RENTALOBJECT_H

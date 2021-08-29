@@ -12,9 +12,13 @@ private:
     unsigned int specN;
     security showSec;
 public:
-    ShowroomVehicle(Container<bool>, unsigned int, QString, unsigned int, unsigned int, bool, double, QString, bool, unsigned int, security);
+    ShowroomVehicle(unsigned int, QString, unsigned int, unsigned int, bool, double, QString, bool, unsigned int, security);
     double getRentAmount() const override { return 0; }
     double getRefundAmount() const override { return 0; }
+    void bookTimeframe() override {  }
+    void freeTimeframe() override {  }
+
+    ShowroomVehicle* clone() const override;
 };
 
 #endif // SHOWROOMVEHICLE_H

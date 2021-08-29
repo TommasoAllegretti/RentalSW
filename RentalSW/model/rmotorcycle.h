@@ -10,7 +10,7 @@ private:
     handleBars defaultHB;
     handleBars wantedHB;
 public:
-    RMotorcycle(Container<bool>, unsigned int, QString, unsigned int, unsigned int, bool, double, double, unsigned int, bool, handleBars dHB, handleBars wHB);
+    RMotorcycle(unsigned int, QString, unsigned int, unsigned int, bool, double, double, unsigned int, bool, handleBars dHB, handleBars wHB);
     double getRentAmount() const override { return 0; }
     double getRefundAmount() const override { return 0; }
 };

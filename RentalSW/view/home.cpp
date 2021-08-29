@@ -1,6 +1,8 @@
 #include "home.h"
 
 Home::Home() {
+    Rental* rentLst = new Rental();
+    void testLst(rentLst);
     setSceneRect(0, 0, 1920, 1080);
     loadBG();
     loadButton();
@@ -29,4 +31,6 @@ void Home::loadBG() {
     setBackgroundBrush(brush);
 }
 
+void Home::testLst(Container<DeepPtr<RentalObject>> aux) {
+}
 

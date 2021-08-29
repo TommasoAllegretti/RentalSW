@@ -10,7 +10,7 @@ private:
     unsigned int passengersN;
     bool highwayPass;
 public:
-    RoadVehicle(Container<bool>, unsigned int, QString, unsigned int, unsigned int, bool, double, double, unsigned int, bool);
+    RoadVehicle(unsigned int, QString, unsigned int, unsigned int, bool, double, double, unsigned int, bool);
     //double getRentAmount() const override { return 0; }
     //double getRefundAmount() const override { return 0; }
 };

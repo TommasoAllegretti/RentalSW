@@ -86,12 +86,12 @@ std::ostream& operator<<(std::ostream& os, const Container<T>& c){
 }
 
 
-/* Implementzione */
+/* Implementazione */
 
 
 //costrttore di default
 template <class T>
-Container<T>::Container(): cap(1), sz(0), info(new T[1]) {}
+Container<T>::Container(): info(new T[1]), cap(1), sz(0) {}
 
 //costruttore a 2 argomenti
 template <class T>
@@ -103,8 +103,8 @@ Container<T>::Container(unsigned int elemN, T t): cap(elemN), sz(elemN), info(ne
 
 //costruttore di copia
 template <class T>
-Container<T>::Container(const Container& c): cap(c.cap), sz(c.sz), info(new T[cap]) {
-    for(int i = 0; i<sz; i++){
+Container<T>::Container(const Container& c): info(new T[cap]), cap(c.cap), sz(c.sz) {
+    for(unsigned int i = 0; i<sz; i++){
         info[i] = c.info[i];
     }
 }
@@ -268,11 +268,11 @@ void Container<T>::push_back(const T& t){
     if(sz==cap){
         cap*=2;
         T* aux = new T[sz];
-        for(int i=0;i<sz; i++)
+        for(unsigned int i=0;i<sz; i++)
             aux[i]= info[i];
         delete[] info;
         info = new T[cap];
-        for(int i=0;i<sz; i++)
+        for(unsigned int i=0;i<sz; i++)
             info[i]=aux[i];
     }
     info[sz] = t;

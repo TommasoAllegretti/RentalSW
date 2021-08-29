@@ -9,7 +9,7 @@ private:
     bool autoWind;
     bool gps;
 public:
-    Car(Container<bool>, unsigned int, QString, unsigned int, unsigned int, bool, double, double, unsigned int, bool, bool, bool, bool);
+    Car(unsigned int, QString, unsigned int, unsigned int, bool, double, double, unsigned int, bool, bool, bool, bool);
     double getRentAmount() const override { return 0; }
     double getRefundAmount() const override { return 0; }
 };
